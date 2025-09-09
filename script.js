@@ -3,7 +3,6 @@ console.log(screenText);
 const btn = document.querySelectorAll("button");
 const btnArray = Array.from(btn);
 
-
 for(let e = 0; e < btnArray.length; e++){
     btnArray[e].addEventListener("click", function() {
         display(this);
@@ -23,5 +22,7 @@ function display(key){
     }
     else{
         screenText.textContent += value;
+        // Scroll the parent container to the rightmost position
+        screenText.parentElement.scrollLeft = screenText.parentElement.scrollWidth;
     }   
 }
