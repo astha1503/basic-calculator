@@ -38,7 +38,7 @@
     overflow-y: hidden;
     white-space: nowrap;
     text-align: right;
-    direction: rtl;
+    
 
     scrollbar-width: none;
     -ms-overflow-style: none;  /* this is older version of vs code */
@@ -77,4 +77,15 @@
 .number-button .clear {
     grid-column: span 2;
     background-color: #E74C3C;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }

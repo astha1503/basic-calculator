@@ -1,5 +1,4 @@
 const screenText = document.querySelector(".screen-text");
-console.log(screenText);
 const btn = document.querySelectorAll("button");
 const btnArray = Array.from(btn);
 
@@ -11,13 +10,16 @@ for(let e = 0; e < btnArray.length; e++){
 
 function display(key){
     let value = key.textContent;
-    if(value == "="){
-        screenText.textContent = ""; // add function which display opersation on pparcicular problem
+    let action = key.dataset.action;
+
+    if(value === "="){
+        let exper = screenText.textContent;
+        screenText.textContent = result(exper);
     }
-    else if (value == "C"){
+    else if (value === "C"){
         screenText.textContent = "";
     }
-    else if (value == ""){
+    else if (action === "backspace"){
         screenText.textContent = screenText.textContent.slice(0, -1);
     }
     else{
@@ -26,3 +28,16 @@ function display(key){
         screenText.parentElement.scrollLeft = screenText.parentElement.scrollWidth;
     }   
 }
+
+function result(expression) {
+    expression = expression.replace(/×/g, '*')
+                          .replace(/x/g, '*')
+                          .replace(/÷/g, '/')
+                          .replace(/\^/g, '**');
+    try {
+        return eval(expression);
+    } catch {
+        return "Error";
+    }
+}
+
