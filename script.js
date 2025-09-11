@@ -14,6 +14,7 @@ function display(key){
 
     if(value === "="){
         let exper = screenText.textContent;
+        console.log(exper);
         screenText.textContent = result(exper);
     }
     else if (value === "C"){
@@ -37,7 +38,17 @@ function result(expression) {
     try {
         return eval(expression);
     } catch {
-        return "Error";
+        return "invalid";
     }
 }
+
+// function result(expression) {
+//     expression = expression.replace(/×/g, '*')
+//                           .replace(/x/g, '*')
+//                           .replace(/÷/g, '/')
+//                           .replace(/\^/g, '**');
+    
+//     console.log(expression);
+//     return "fun";
+// }
 
